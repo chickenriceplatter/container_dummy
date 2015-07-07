@@ -1,0 +1,7 @@
+// "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+// You must @import any scss file that you add to the stylesheets folder here for it to be effective
+@import "darkly";
+

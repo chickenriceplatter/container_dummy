@@ -1,0 +1,19 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  port: 5432
+  pool: 5
+
+development:
+  <<: *default
+  database: dummy_development
+
+test:
+  <<: *default
+  database: dummy_test
+
+production:
+  <<: *default
+  database: dummy_production
+  username: dummy
+  password: <%= ENV['DUMMY_DATABASE_PASSWORD'] %>

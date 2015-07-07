@@ -1,0 +1,61 @@
+<header>
+  <nav class="navbar navbar-default">
+
+    <div class="container">
+
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <%= link_to root_path do %>
+          <%= image_tag "dummy_logo.jpg", class: "navbar-brand logo" %>
+        <% end %>
+        <%= link_to "Dummy Application", root_path, class: "navbar-brand" %>
+      </div>
+
+     <div class="collapse navbar-collapse" id="navbar-collapse-1">
+        <ul class="nav navbar-nav">
+        </ul>
+      </div>
+
+    </div>
+
+  </nav>
+</header>
+
+<body>
+  <div class='container'>
+    <h1 style="text-align: center">Current time is <%= Time.now.strftime("%B %d, %Y %l:%M%P") -%></h2>
+    <h1 style="text-align: center">Request is made from IP address: <%= request.remote_ip -%></h2>
+    <br>
+    <br>
+
+    <h3>Largest US cities (data stored in postgresql)</h2>
+
+    <table class="table table-hover table-dynamic table-bordered">
+
+    <thead>
+      <tr class='success'>
+        <th>Name</th>
+        <th>State</th>
+        <th>Year of Incorporation</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% City.find_each do |c| %>
+        <tr>
+          <td><%= c.name -%></td>
+          <td><%= c.state -%></td>
+          <td><%= c.year_of_incorporation -%></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  </div>
+
+</body>
